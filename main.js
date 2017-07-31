@@ -85,16 +85,69 @@ let formData = [
 // HINTS:
 // As you can see, we access the first element in the array
 // with [0] and then grab the property "label" using the "." operator
-( function(){
+(function () {
   // Select the first element from the array
-  let first = formData[ 0 ];
+  let first = formData[0];
   // Log the first object
-  console.log( first );
+  console.log(first);
   // Log the string "First Name"
-  console.log( first.label );
-} )();
+  console.log(first.label);
+})();
 
 
 // -------- Your Code Goes Below this Line --------
+
+
+
+// function populateForms() {
+
+for (let i = 0; i < formData.length; i++) {
+  let fields = document.getElementById("fields")
+
+  if (formData[i].type === "text" || formData[i].type === "email" || formData[i].type === "tel") {
+    let inputField = document.createElement("input")
+
+    inputField.type = formData[i].type;
+    inputField.placeholder = formData[i].label
+
+    fields.appendChild(inputField);
+
+  } else if (formData[i].type === "select") {
+    let selectField = document.createElement("select");
+    let selectOption = document.createElement("option");
+
+    selectOption.label = formData[i].label;
+    selectField.type = formData[i].type;
+
+    fields.appendChild(selectField);
+    selectField.appendChild(selectOption)
+
+    for (let k = 0; k < formData[i].options.length; k++) {
+      let selectOption = document.createElement("option");
+
+      selectOption.label = formData[i].options[k].label;
+      selectOption.value = formData[i].options[k].value;
+
+      selectField.appendChild(selectOption);
+
+    }
+  } else if (formData[i].type === "textarea") {
+    let textAreaInput = document.createElement("textarea");
+
+    textAreaInput.type = formData[i].type;
+    textAreaInput.placeholder = formData[i].label;
+
+    fields.appendChild(textAreaInput);
+  }
+
+
+
+
+}
+
+
+
+
+
 
 
