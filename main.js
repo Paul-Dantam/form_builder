@@ -100,12 +100,25 @@ let formData = [
 
 
 // function populateForms() {
+let fields = document.getElementById("fields")
+
+
+// let wrapper = document.getElementsByClassName("wrapper").style.fontFamily = ("sans-serif, FontAwesome");
+
+
+
+
+
+
+
+
+
 
 for (let i = 0; i < formData.length; i++) {
-  let fields = document.getElementById("fields")
-
   if (formData[i].type === "text" || formData[i].type === "email" || formData[i].type === "tel") {
-    let inputField = document.createElement("input")
+    let inputField = document.createElement("input");
+    inputField.style.width = "95%";
+
 
     inputField.type = formData[i].type;
     inputField.placeholder = formData[i].label
@@ -115,6 +128,7 @@ for (let i = 0; i < formData.length; i++) {
   } else if (formData[i].type === "select") {
     let selectField = document.createElement("select");
     let selectOption = document.createElement("option");
+    selectField.style.width = "98%";
 
     selectOption.label = formData[i].label;
     selectField.type = formData[i].type;
@@ -133,7 +147,7 @@ for (let i = 0; i < formData.length; i++) {
     }
   } else if (formData[i].type === "textarea") {
     let textAreaInput = document.createElement("textarea");
-
+    textAreaInput.style.width = "93%"
     textAreaInput.type = formData[i].type;
     textAreaInput.placeholder = formData[i].label;
 
